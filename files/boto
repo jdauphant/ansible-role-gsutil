@@ -174,7 +174,7 @@ default_api_version = 2
 # 'default_project_id' specifies the default Google Cloud Storage project ID to
 # use with the 'mb' and 'ls' commands. This default can be overridden by
 # specifying the -p option to the 'mb' and 'ls' commands.
-default_project_id = banded-charmer-384
+#default_project_id = 
 
 
 
