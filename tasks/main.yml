@@ -2,28 +2,28 @@
 - name: Ensure dependancies gsutil are installed for Debian OS family
   apt: pkg=gcc,python-dev,python-setuptools,libffi-dev state=present
   when: ansible_os_family == "Debian"
-  environment: gsutil_environment
+  environment: "{{ gsutil_environment }}"
   tags: ["packages","gsutil"]
 
 - name: Ensure dependancies gsutil are installed for RedHat OS family
   yum: name=gcc,openssl-devel,python-devel,python-setuptools,libffi-devel state=present
   when: ansible_os_family == "RedHat"
-  environment: gsutil_environment
+  environment: "{{ gsutil_environment }}"
   tags: ["packages","gsutil"]
 
 - name: Ensure pip is installed
   easy_install: name=pip
-  environment: gsutil_environment
+  environment: "{{ gsutil_environment }}"
   tags: ["packages","gsutil"]
 
 - name: Ensure the right version of pyOpenSSL is installed
   pip: name=pyOpenSSL version=0.13
-  environment: gsutil_environment
+  environment: "{{ gsutil_environment }}"
   tags: ["packages","gsutil"]
 
 - name: Ensure gsutil is installed
   pip: name=gsutil state=present
-  environment: gsutil_environment
+  environment: "{{ gsutil_environment }}"
   tags: ["packages","gsutil"]
 
 - name: Ensure .boto base is present for each user
